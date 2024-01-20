@@ -9,31 +9,31 @@ class ContactForm extends Component {
     number: '',
   };
 
-  // Генерация уникальных идентификаторов для полей формы
+  
   nameInputId = nanoid();
   numberInputId = nanoid();
 
-  // Обработка отправки формы
+  
   handleSubmit = event => {
     event.preventDefault();
 
-    // Вызов функции onSubmit из родительского компонента с передачей объекта контакта
+    
     this.props.onSubmit({
       name: this.state.name.trim(),
       number: this.state.number.trim(),
     });
 
-    // Сброс состояния формы
+   
     this.reset();
   };
 
-  // Обработка изменения значений полей формы
+  
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  // Сброс состояния формы
+
   reset = () => {
     this.setState({ number: '', name: '' });
   };
